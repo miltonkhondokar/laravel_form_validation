@@ -9,5 +9,6 @@ This is a sample project. Which is working with just a simple form validation bo
 
 Just download or clone this project and run the following command, and that's it.
 ```
+composer update
 php artisan migrate
 ```
