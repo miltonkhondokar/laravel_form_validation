@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\sales\SalesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,5 +15,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('sales.dashboard');
 });
+
+Route::group(['prefix' => 'sales', 'as' => 'sales.'], function () {
+    Route::get('dashboard',                         [SalesController::class,     'index'])->name('dashboard');
+    Route::get('all-sales',                         [SalesController::class,     'salesList'])->name('all-sales');
+    Route::post('all-sales',                        [SalesController::class,     'salesList'])->name('all-sales');
+});
+Route::resource('sales',                        SalesController::class);
