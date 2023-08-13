@@ -35,6 +35,11 @@ class RouteServiceProvider extends ServiceProvider
 
             Route::middleware('web')
                 ->group(base_path('routes/web.php'));
+
+            // AJAX ROUTES
+            Route::namespace('\\')->middleware('web')
+                ->prefix('ajax')
+                ->group(base_path('routes/_web_ajax.php'));
         });
     }
 }

@@ -22,8 +22,9 @@ class SalesController extends Controller
      */
     public function salesList(Request $request)
     {
-        $allSalesInfo = Sales::get();
-        return view('admin.sales-tracker.all-sales', ['data' => $allSalesInfo]);
+        // $allSalesInfo = Sales::get();
+        // return view('admin.sales-tracker.all-sales', ['data' => $allSalesInfo]);
+        return view('admin.sales-tracker.all-sales');
     }
 
     /**
